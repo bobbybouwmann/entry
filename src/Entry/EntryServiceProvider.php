@@ -27,4 +27,5 @@ class EntryServiceProvider extends ServiceProvider {
             return new Entry($app);
         });
     }
+
 }

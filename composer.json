@@ -22,7 +22,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Blackbird\\Entry\\": "src/Entry"
+      "Blackbirddev\\Entry\\": "src/Entry"
     }
   },
   "minimum-stability": "dev"
