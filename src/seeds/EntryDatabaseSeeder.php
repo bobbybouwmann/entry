@@ -7,8 +7,8 @@ class EntryDatabaseSeeder extends Seeder {
 
     public function run()
     {
-        $this->comment('A seed that fills the following tables: roles, permissions, permission_role');
-        $this->line('');
+        $this->command->comment('A seed that fills the following tables: roles, permissions, permission_role');
+        $this->command->line('');
 
         if ($this->command->confirm('Proceed with the seeding? [Yes|no]'))
         {
