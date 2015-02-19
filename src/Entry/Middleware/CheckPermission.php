@@ -1,9 +1,8 @@
 <?php namespace Blackbirddev\Entry\Middleware;
 
 use Closure;
-use Illuminate\Contracts\Routing\Middleware;
 
-class CheckPermission extends Middleware {
+class CheckPermission {
 
     /**
      * @var
@@ -29,16 +28,17 @@ class CheckPermission extends Middleware {
      */
     public function handle($request, Closure $next)
     {
-        $action = $request->route()->getAction();
-        dd($action);
+        $return = $next($request);
 
-        if ($this->auth->user()->can($action['permission']))
-        {
+        dd($request->route()->getAction()['permission']);
 
-            return $next($request);
-        }
+        /**
+         * If User has the correct permission based on the route_name linked in the database
+         * then let them go to the correct location else redirect to the
+         * homepage (route_name should be editable in config)
+         */
 
-        return redirect()->route('home');
+        return $return;
     }
 
 }
