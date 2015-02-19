@@ -1,0 +1,29 @@
+{
+  "name": "blackbirddev/entry",
+  "description": "Role package for Laravel 5",
+  "keywords": ["laravel", "roles", "sebwite"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bobby Bouwmann",
+      "email": "bobbybouwmann@gmail.com",
+      "homepage": "http://blackbirddevelopment.nl"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/console": "~5.0",
+    "illuminate/support": "~5.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.1",
+    "mockery/mockery": "dev-master",
+    "illuminate/database": "~5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Blackbird\\Entry\\": "src/Entry"
+    }
+  },
+  "minimum-stability": "dev"
+}
