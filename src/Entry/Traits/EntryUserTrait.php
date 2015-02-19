@@ -85,14 +85,11 @@ trait EntryUserTrait {
         }
         else
         {
-            foreach ($this->roles as $role)
+            foreach ($this->role()->permissions as $perm)
             {
-                foreach ($role->permissions as $perm)
+                if ($perm->name == $permission)
                 {
-                    if ($perm->name == $permission)
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
         }

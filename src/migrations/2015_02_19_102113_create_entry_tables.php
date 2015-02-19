@@ -12,6 +12,10 @@ class CreateEntryTables extends Migration {
      */
     public function up()
     {
+        Schema::table('users', function(Blueprint $table) {
+            $table->integer('role_id')->unsigned();
+        });
+
         Schema::create('roles', function(Blueprint $table)
         {
             $table->increments('id');
@@ -48,6 +52,10 @@ class CreateEntryTables extends Migration {
      */
     public function down()
     {
+        Schema::table('users', function(Blueprint $table) {
+            $table->dropColumn('role_id');
+        });
+
         Schema::drop('roles');
         Schema::drop('permissions');
         Schema::drop('permission_role');
