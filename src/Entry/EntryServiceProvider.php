@@ -13,13 +13,13 @@ class EntryServiceProvider extends ServiceProvider {
             __DIR__ . '/../config/config.php' => config_path('entry.php'),
         ], 'config');
 
-//        $this->publishes([
-//            __DIR__ . '/../migrations/2015_02_19_102113_create_entry_tables.php' => $this->app->databasePath() . '/migrations',
-//        ]);
-
         $this->publishes([
             __DIR__ . '/../migrations/' => base_path('/database/migrations')
         ], 'migrations');
+
+        $this->publishes([
+            __DIR__ . '/../seeds/' => base_path('/database/seeds')
+        ], 'seeds');
     }
 
     /**
