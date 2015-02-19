@@ -68,7 +68,11 @@ $ php artisan db:seed
 $ php artisan db:seed --class=EntryDatabaseSeeder
 ```
 ---
+## Models
 
+TODO: add table for permissions linked to route. (How to get all the routes and save them in the database?)
+TODO: describe how to edit the models.
+TODO: describe how to add middleware to kernel
 
 
 
