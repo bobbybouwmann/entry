@@ -31,8 +31,6 @@ class EntryDatabaseSeeder extends Seeder {
 
     private function populateRolesTable()
     {
-        DB::table('roles')->truncate();
-
         DB::table('roles')->insert([
             [
                 'name' => 'Admin',
@@ -49,8 +47,6 @@ class EntryDatabaseSeeder extends Seeder {
 
     private function populatePermissionsTable()
     {
-        DB::table('permissions')->truncate();
-
         DB::table('permissions')->insert([
             [
                 'name' => 'Delete users',
@@ -67,8 +63,6 @@ class EntryDatabaseSeeder extends Seeder {
 
     private function populatePermissionRoleTable()
     {
-        DB::table('permission_role')->truncate();
-
         DB::table('permission_role')->insert([
             [
                 'role_id' => 1,
