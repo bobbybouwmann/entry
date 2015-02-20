@@ -34,7 +34,7 @@ The next step is to add the migration, models, seeds and config files to your pr
 $ php artisan vendor:publish --provider="Blackbirddev\Entry\EntryServiceProvider"
 ```
 
-**Note: This function generates the models but it generate the correct namespace for you. If you changed the default namespace then you need to update the namespace in the Role and Permission model in the app directory.**
+**Note: This function generates the models but it does NOT generate the correct namespace for you. If you changed the default namespace then you need to update the namespace in the Role and Permission model in the app directory!**
 
 ---
 
@@ -56,6 +56,8 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
  
 }
 ```
+
+**Note: It's important that the use statement is added to your User model**
 
 ---
 
