@@ -66,7 +66,7 @@ class EntryDatabaseSeeder extends Seeder {
         DB::table('permission_role')->insert([
             [
                 'role_id' => 1,
-                'permission_name' => 'users.edit'
+                'permission_name' => 'users.delete'
             ],
             [
                 'role_id' => 1,
