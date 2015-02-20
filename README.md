@@ -26,10 +26,12 @@ The next step is to add the migration, models, seeds and config files to your pr
 ```
 $ php artisan vendor:publish --provider="Blackbirddev\Entry\EntryServiceProvider"
 ```
-**Note: If you only want the migrations, seeds, models or config files then you can use the tag for that! For example:**
-```
-$ php artisan vendor:publish --provider="Blackbirddev\Entry\EntryServiceProvider" --tag="config"
-```
+**Note: This function generates the models but it generate the correct namespace for you. If you changed the default namespace then you need to update the namespace in the Role and Permission model in the app directory.**
+---
+### Middleware
+
+TODO: How to add middleware to kernel..?
+
 ---
 ### Let's get that database ready
 

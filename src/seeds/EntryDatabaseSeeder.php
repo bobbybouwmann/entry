@@ -34,7 +34,7 @@ class EntryDatabaseSeeder extends Seeder {
         DB::table('roles')->insert([
             [
                 'name' => 'Admin',
-                'display_name' => '',
+                'display_name' => 'Admin',
                 'description' => 'This user can do everything!'
             ],
             [
@@ -49,12 +49,12 @@ class EntryDatabaseSeeder extends Seeder {
     {
         DB::table('permissions')->insert([
             [
-                'name' => 'Delete users',
+                'name' => 'users.delete',
                 'display_name' => 'Delete users',
                 'description' => ''
             ],
             [
-                'name' => 'Edit users',
+                'name' => 'users.edit',
                 'display_name' => 'Edit users',
                 'description' => ''
             ]
@@ -66,11 +66,11 @@ class EntryDatabaseSeeder extends Seeder {
         DB::table('permission_role')->insert([
             [
                 'role_id' => 1,
-                'permission_id' => 1
+                'permission_name' => 'users.edit'
             ],
             [
                 'role_id' => 1,
-                'permission_id' => 2
+                'permission_name' => 'users.edit'
             ]
         ]);
     }

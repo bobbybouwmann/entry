@@ -1,9 +1,9 @@
-<?php namespace Blackbirddev\Entry\Models;
+<?php namespace App;
 
 use Blackbirddev\Entry\Traits\EntryRoleTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class EntryRole extends Model {
+class Role extends Model {
 
     use EntryRoleTrait;
 

@@ -1,9 +1,9 @@
-<?php namespace Blackbirddev\Entry\Models;
+<?php namespace App;
 
 use Blackbirddev\Entry\Traits\EntryPermissionTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class EntryPermission extends Model {
+class Permission extends Model {
 
     use EntryPermissionTrait;
 

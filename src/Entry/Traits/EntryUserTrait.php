@@ -9,7 +9,7 @@ trait EntryUserTrait {
      */
     public function role()
     {
-        return $this->hasOne('App\Role');
+        return $this->belongsTo('App\Role');
     }
 
     /**
