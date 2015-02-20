@@ -9,7 +9,7 @@ trait EntryRoleTrait {
      */
     public function users()
     {
-        return $this->hasMany('App\User');
+        return $this->belongsTo('App\User');
     }
 
     /**
@@ -19,7 +19,7 @@ trait EntryRoleTrait {
      */
     public function permissions()
     {
-        return $this->belongsToMany('App\Permission', 'permission_role');
+        return $this->belongsToMany('App\Permission', 'permission_role', 'role_id', 'permission_name');
     }
 
     /**

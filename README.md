@@ -18,15 +18,15 @@ Open up your `config/app.php` file and add this at the end of the `$providers` a
 ```
 'Blackbirddev\Entry\EntryServiceProvider',
 ```
-In the same file add the facade at the end of the `$aliases` array:
+In the same file add the facade at the end gof the `$aliases` array:
 ```
 'Entry      => 'Blackbirddev\Entry\EntryFacade',
 ```
-The next step is to add add the migration, seeds and config files to your project. To do this run this command:
+The next step is to add the migration, models, seeds and config files to your project. To do this run this command:
 ```
 $ php artisan vendor:publish --provider="Blackbirddev\Entry\EntryServiceProvider"
 ```
-**Note: If you only want the migrations, seeds or config files then you can use the tag for that! For example:**
+**Note: If you only want the migrations, seeds, models or config files then you can use the tag for that! For example:**
 ```
 $ php artisan vendor:publish --provider="Blackbirddev\Entry\EntryServiceProvider" --tag="config"
 ```
@@ -39,40 +39,36 @@ $ php artisan migrate
 ```
 ---
 ### Finally some data
-
-As you can see in your `app/database/seeds` folder there is a new database seeder. We need to add this to the standard DatabaseSeeder class
-```
-class DatabaseSeeder {
-
-    public function run()
-    {
-        Model::unguard();
-
-        // Your migrations
-
-        $this->call('EntryDatabaseSeeder');
-    }
-
-}
-```
-Now we have done that we need to generate the new class loader
-```
-$ composer dump-autoload
-```
-Now we can seed the database
-```
-$ php artisan db:seed
-```
-**Note: You can also only run the created seeder class by the package:**
+We need to seed the database with the new seeder class that is created in the migrations directory
 ```
 $ php artisan db:seed --class=EntryDatabaseSeeder
 ```
+**Note: If you can't run the seed then run `composer dump-autoload` first**
+
 ---
 ## Models
 
-TODO: add table for permissions linked to route. (How to get all the routes and save them in the database?)
-TODO: describe how to edit the models.
-TODO: describe how to add middleware to kernel
+### User (App\User.php)
+
+We need to update the user model with a trait. Your model should now look like this:
+
+```
+use Blackbird\Entry\Entry\EntryUserTrait;
+ 
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
+ 
+    use Authenticatable, CanResetPassword, EntryUserTrait;
+ 
+    // Your other stuff
+    ...
+ 
+}
+```
+
+And finally we need to a `composer dump-autoload` to make all the models available ;)
+
+---
+
 
 
 

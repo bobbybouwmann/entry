@@ -9,7 +9,7 @@ trait EntryPermissionTrait {
      */
     public function roles()
     {
-        return $this->belongsToMany('App\Role', 'permission_role');
+        return $this->belongsToMany('App\Role', 'permission_role', 'role_id', 'permission_name');
     }
 
 }

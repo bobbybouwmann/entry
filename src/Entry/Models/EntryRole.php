@@ -1,4 +1,4 @@
-<?php namespace Blackbirddev\Entry;
+<?php namespace Blackbirddev\Entry\Models;
 
 use Blackbirddev\Entry\Traits\EntryRoleTrait;
 use Illuminate\Database\Eloquent\Model;
@@ -13,6 +13,13 @@ class EntryRole extends Model {
      * @var string
      */
     protected $table = 'roles';
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = ['name', 'display_name', 'description'];
 
     /**
      * Create a new instance of the model.

@@ -2,8 +2,6 @@
 
 return [
 
-    'role' => 'test',
-
     'admin' => 'test'
 
 ];

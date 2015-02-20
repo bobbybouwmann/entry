@@ -30,13 +30,15 @@ class CheckPermission {
     {
         $return = $next($request);
 
-        dd($request->route()->getAction()['permission']);
+        dd($this->auth);
 
-        /**
-         * If User has the correct permission based on the route_name linked in the database
-         * then let them go to the correct location else redirect to the
-         * homepage (route_name should be editable in config)
-         */
+        // Get the correct route name.
+        // Check if the current user has the permission with the same name as the route name.
+
+        // Redirect to the correct page
+        // If not redirect to the homepage
+
+        dd($request->route()->getAction()['permission']);
 
         return $return;
     }

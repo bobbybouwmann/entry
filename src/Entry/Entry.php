@@ -36,14 +36,13 @@ class Entry
      * Check if the current user has a permission by name
      *
      * @param $permission
-     * @param bool $requireAll
      *
      * @return bool
      */
-    public function can($permission, $requireAll = false)
+    public function hasPermission($permission)
     {
         if ($user = $this->user()) {
-            return $user->can($permission, $requireAll);
+            return $user->hasPermission($permission);
         }
 
         return false;
