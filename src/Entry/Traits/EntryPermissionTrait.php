@@ -9,7 +9,20 @@ trait EntryPermissionTrait {
      */
     public function roles()
     {
-        return $this->belongsToMany('App\Role', 'permission_role', 'role_id', 'permission_name');
+        return $this->belongsToMany('App\Role', 'permission_role', 'permission_name', 'role_id');
+    }
+
+    /**
+     * Set a custom primary key
+     *
+     * @return string
+     */
+    public function getKeyName()
+    {
+        if (empty($this->relations))
+            return 'name';
+
+        return 'id';
     }
 
 }

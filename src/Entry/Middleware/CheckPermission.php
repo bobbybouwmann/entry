@@ -1,6 +1,8 @@
 <?php namespace Blackbirddev\Entry\Middleware;
 
+use Blackbirddev\Entry\EntryFacade;
 use Closure;
+use Illuminate\Contracts\Auth\Guard;
 
 class CheckPermission {
 
@@ -24,23 +26,17 @@ class CheckPermission {
      *
      * @param \Illuminate\Http\Request $request
      * @param callable $next
-     * @return \Illuminate\Http\RedirectResponse|mixed
+     *
+     * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        $return = $next($request);
+        $response = $next($request);
 
-        dd($this->auth);
+        if ( ! EntryFacade::hasPermission($request->route()->getName()))
+            abort(403, 'Unauthorized action.');
 
-        // Get the correct route name.
-        // Check if the current user has the permission with the same name as the route name.
-
-        // Redirect to the correct page
-        // If not redirect to the homepage
-
-        dd($request->route()->getAction()['permission']);
-
-        return $return;
+        return $response;
     }
 
 }

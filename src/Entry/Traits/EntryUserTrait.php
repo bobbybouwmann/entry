@@ -3,7 +3,7 @@
 trait EntryUserTrait {
 
     /**
-     * Many-to-Many relation with Role.
+     * hasOne relation with Role.
      *
      * @return mixed
      */
@@ -21,7 +21,7 @@ trait EntryUserTrait {
      */
     public function hasRole($name)
     {
-        return ($this->role()->name == $name);
+        return ($this->role->name == $name);
     }
 
     /**
@@ -33,7 +33,7 @@ trait EntryUserTrait {
      */
     public function hasPermission($permission)
     {
-        return (in_array($permission, $this->role()->permissions->lists('name')));
+        return (in_array($permission, $this->role->permissions->lists('name')));
     }
 
 }

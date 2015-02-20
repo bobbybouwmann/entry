@@ -23,20 +23,6 @@ trait EntryRoleTrait {
     }
 
     /**
-     * Save the inputted permissions.
-     *
-     * @param mixed $permissions
-     */
-    public function savePermissions($permissions)
-    {
-        if ( ! empty($permissions)) {
-            $this->permissions()->sync($permissions);
-        } else {
-            $this->permissions()->detach();
-        }
-    }
-
-    /**
      * Attach permission to the current role.
      *
      * @param mixed

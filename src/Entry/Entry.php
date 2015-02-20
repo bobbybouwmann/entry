@@ -1,7 +1,6 @@
 <?php namespace Blackbirddev\Entry;
 
-class Entry
-{
+class Entry {
 
     /**
      * Laravel application
@@ -19,15 +18,13 @@ class Entry
      * Check if the current user has a role by name
      *
      * @param $role
-     * @param bool $requireAll
      *
      * @return bool
      */
-    public function hasRole($role, $requireAll = false)
+    public function hasRole($role)
     {
-        if ($user = $this->user()) {
-            return $user->hasRole($role, $requireAll);
-        }
+        if ($user = $this->user())
+            return $user->hasRole($role);
 
         return false;
     }
@@ -41,9 +38,8 @@ class Entry
      */
     public function hasPermission($permission)
     {
-        if ($user = $this->user()) {
+        if ($user = $this->user())
             return $user->hasPermission($permission);
-        }
 
         return false;
     }
